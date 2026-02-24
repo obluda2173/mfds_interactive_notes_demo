@@ -1,0 +1,52 @@
+---
+title: "MFDS Interactive Lecture Notes"
+subtitle: "Mathematical Foundations of Data Science — University of Vienna"
+format: live-html
+---
+
+## Welcome
+
+These interactive lecture notes allow you to **run code directly in your browser**—no installation required.
+
+The code executes via [Pyodide](https://pyodide.org/), a Python interpreter compiled to WebAssembly.
+
+::: {.callout-note}
+## First Load
+The first code execution downloads the Python engine (~10MB). Subsequent runs are instant.
+:::
+
+---
+
+## Available Lectures
+
+### Analysis I
+
+| Lecture | Topic | 
+|:--------|:------|
+| [Lecture 1](lectures/analysis/01_newton_method.qmd) | Newton's Method |
+
+---
+
+## Quick Demo
+
+Try editing and running this code:
+
+```{pyodide}
+import numpy as np
+
+# Calculate the square root of 2 using Newton's method
+x = 2.0  # Starting guess
+for i in range(5):
+    x = x - (x**2 - 2) / (2*x)
+    print(f"Iteration {i+1}: x = {x:.15f}")
+
+print(f"\nTrue value:   {np.sqrt(2):.15f}")
+```
+
+---
+
+## About
+
+**Author:** Erik An  
+**Program:** MFDS Bachelor, University of Vienna (2025-2028)  
+**Repository:** [GitHub](https://github.com/obluda2173/mfds_interactive_notes_demo)
