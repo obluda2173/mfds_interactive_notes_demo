@@ -5,7 +5,7 @@ project:
 website:
   title: "MFDS Interactive Lecture Notes"
   description: "Interactive lecture notes for Mathematical Foundations of Data Science"
-  site-url: https://obluda2173.github.io/mfds_interactive_notes_demo/
+  site-url: https://obluda2173.github.io/mfds/
   
   navbar:
     title: "MFDS Notes"
@@ -22,7 +22,7 @@ website:
         href: lectures/programming/index.qmd
     right:
       - icon: github
-        href: https://github.com/obluda2173/mfds_interactive_notes_demo
+        href: https://github.com/obluda2173/mfds
 
   sidebar:
     style: "docked"
