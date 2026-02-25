@@ -56,16 +56,8 @@ format:
     code-tools: true
     highlight-style: github
 
-  live-html:
-    theme:
-      light: flatly
-      dark: darkly
-    css: styles.css
-    toc: true
-    toc-depth: 3
-    code-fold: false
-    code-tools: true
-    highlight-style: github
+filters:
+  - live
 
 execute:
   freeze: auto
