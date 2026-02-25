@@ -118,6 +118,11 @@ a:hover {
 }
 
 /* --- 4. Sidebar --- */
+#quarto-sidebar {
+  background-color: var(--perchament-dark) !important; /* Change this to your preferred color variable */
+  border-right: 1px solid var(--rule-light);
+}
+
 .sidebar {
   background-color: var(--parchment);
   border-right: 1px solid var(--rule-light);
