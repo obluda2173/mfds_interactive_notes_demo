@@ -27,8 +27,9 @@ website:
   sidebar:
     style: "docked"
     search: true
+    collapse-level: 1
     contents:
-      - section: "Analysis I"
+      - section: "Analysis"
         contents:
           - lectures/analysis/01_newton_method.qmd
       - section: "Linear Algebra"
@@ -39,10 +40,13 @@ website:
           - lectures/programming/index.qmd
 
   page-footer:
+    left: |
+      © 2026 Erik An
     center: |
-      MFDS · University of Vienna · 2025-2028
+      MFDS · University of Vienna · 2025–2028 <br>
+      Licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
     right: |
-      Built with [Quarto](https://quarto.org/)
+      Found a typo? [Report an issue](https://github.com/obluda2173/mfds/issues)
 
 format:
   html:

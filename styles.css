@@ -1,100 +1,462 @@
-/* Custom styles for MFDS Interactive Notes */
+/* ============================================================
+   MFDS Interactive Notes — Custom Stylesheet
+   Palette: Amber-Orange · Sage Green · Warm Parchment · Ink
+   ============================================================ */
 
-/* --- 1. Core Variables & Branding --- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,300;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* --- 1. Design Tokens --- */
 :root {
-  /* Official University of Vienna Blue */
-  --uni-wien-blue: #0063a6;
-  --uni-wien-light: #e8f1f7;
+  /* Core palette */
+  --orange:           #FF7F11;
+  --orange-dark:      #d96800;
+  --orange-muted:     #fff0e0;
+  --orange-tint:      #fff7f0;
 
-  /* Clean Data Science Accents */
-  --ds-border: #e2e8f0;
-  --ds-bg-light: #f8fafc;
-  --text-main: #334155;
+  --sage:             #ACBFA4;
+  --sage-dark:        #7a9470;
+  --sage-light:       #CBD6B8;
+  --sage-mist:        #E0E6D2;
+
+  --ink:              #262626;
+  --ink-soft:         #3d3d35;
+  --ink-muted:        #6B6B5E;
+
+  --parchment:        #E8E4DC;
+  --parchment-dark:   #DDD8CE;
+  --rule:             #9aad92;
+  --rule-light:       #C8D0B8;
+
+  /* Typography */
+  --font-display:     'Playfair Display', Georgia, serif;
+  --font-body:        'Source Serif 4', Georgia, serif;
+  --font-mono:        'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Rhythm */
+  --rhythm:           1.75rem;
+  --section-gap:      3.5rem;
 }
 
-/* --- 2. Navigation & Layout --- */
+/* --- 2. Base Typography --- */
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  color: var(--ink-soft);
+  background-color: var(--parchment);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: 2.4rem; margin-bottom: 1.25rem; }
+h2 {
+  font-size: 1.65rem;
+  margin-top: var(--section-gap);
+  margin-bottom: 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--rule-light);
+}
+h3 { font-size: 1.25rem; font-weight: 600; margin-top: 2rem; }
+
+p { margin-bottom: var(--rhythm); }
+
+a {
+  color: var(--orange-dark);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+a:hover {
+  color: var(--orange);
+  text-decoration-thickness: 2px;
+}
+
+::selection {
+  background-color: var(--orange-muted);
+  color: var(--ink);
+}
+
+/* --- 3. Navigation --- */
 .navbar {
-  border-bottom: 3px solid var(--uni-wien-blue);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+  border-bottom: 2.5px solid var(--orange);
+  background-color: var(--parchment) !important;
+  box-shadow: 0 1px 10px rgba(38, 38, 38, 0.07);
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
 }
 
 .navbar-brand {
+  font-family: var(--font-display);
   font-weight: 700;
-  letter-spacing: -0.5px;
-  color: var(--uni-wien-blue) !important;
+  font-size: 1.15rem;
+  color: var(--ink) !important;
+  letter-spacing: -0.03em;
+}
+
+.navbar .nav-link {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: var(--ink-soft) !important;
+  padding: 0.3rem 0.75rem !important;
+  border-radius: 4px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.navbar .nav-link:hover {
+  background-color: var(--orange-muted);
+  color: var(--orange-dark) !important;
+}
+
+/* --- 4. Sidebar --- */
+.sidebar {
+  background-color: var(--parchment);
+  border-right: 1px solid var(--rule-light);
 }
 
 .sidebar-title {
-  font-weight: 700;
-  color: var(--text-main);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--orange-dark);
   text-transform: uppercase;
-  font-size: 0.85rem;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.75rem;
 }
 
-/* --- 3. Code & Math (The Data Science Core) --- */
+.sidebar-item .sidebar-item-text {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.sidebar-item.active > .sidebar-item-text,
+.sidebar-item a.active {
+  color: var(--orange-dark) !important;
+  font-weight: 500;
+  border-left: 2px solid var(--orange);
+  padding-left: 0.5rem;
+  margin-left: -0.5rem;
+}
+
+/* --- 5. Title Block --- */
+.quarto-title-block {
+  padding: 2.5rem 0 2rem;
+  border-bottom: 1px solid var(--rule-light);
+  margin-bottom: var(--section-gap);
+}
+
+.quarto-title-block .title {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.quarto-title-block .subtitle {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.1rem;
+  color: var(--orange-dark);
+  margin-top: 0.25rem;
+}
+
+.quarto-title-block .author,
+.quarto-title-block .date {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.03em;
+  margin-top: 1.25rem;
+}
+
+/* --- 6. Code Blocks --- */
 pre, .sourceCode {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.65;
   border-radius: 6px;
-  border: 1px solid var(--ds-border);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-  background-color: var(--ds-bg-light);
+  border: 1px solid var(--rule-light);
+  background-color: var(--sage-mist) !important;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.03), 0 2px 8px rgba(0,0,0,0.03);
+  padding: 1.25rem 1.5rem;
+  overflow-x: auto;
 }
 
+code:not(.sourceCode) {
+  font-family: var(--font-mono);
+  font-size: 0.865em;
+  background-color: var(--orange-tint);
+  color: var(--orange-dark);
+  border: 1px solid var(--orange-muted);
+  border-radius: 3px;
+  padding: 0.1em 0.4em;
+}
+
+/* --- 7. Math Display --- */
 .math.display {
   overflow-x: auto;
-  padding: 1.25rem 1rem;
-  margin: 1.5rem 0;
-  background-color: #fafafa;
-  border-left: 3px solid #cbd5e1;
+  padding: 1.5rem 1.75rem;
+  margin: 2rem 0;
+  background: linear-gradient(to right, var(--sage-mist), var(--parchment));
+  border-left: 3px solid var(--orange);
   border-radius: 0 6px 6px 0;
   font-size: 1.05em;
+  box-shadow: 0 2px 8px rgba(255, 127, 17, 0.07);
 }
 
-/* --- 4. Tables (Data Frame Aesthetic) --- */
+/* --- 8. Tables --- */
 table {
-  margin: 2rem 0;
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.95rem;
+  font-size: 0.9375rem;
+  margin: 2rem 0;
+  font-family: var(--font-body);
+  font-weight: 300;
 }
 
 table thead th {
-  border-bottom: 2px solid var(--uni-wien-blue);
-  color: var(--text-main);
-  font-weight: 600;
-  padding: 0.75rem 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--orange-dark);
+  padding: 0.85rem 0.75rem;
+  border-bottom: 2px solid var(--orange);
   text-align: left;
 }
 
 table tbody td {
-  padding: 0.75rem 0.5rem;
-  border-bottom: 1px solid var(--ds-border);
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--rule-light);
+  color: var(--ink-soft);
 }
 
-table tbody tr:hover {
-  background-color: var(--uni-wien-light);
+table tbody tr:hover td {
+  background-color: var(--orange-tint);
 }
 
-/* --- 5. Callouts (Academic Admonitions) --- */
+table tbody tr:last-child td {
+  border-bottom: 1px solid var(--rule);
+}
+
+/* --- 9. Callouts --- */
+.callout {
+  border-radius: 6px;
+  margin: 2rem 0;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
 .callout-note {
-  border-left-color: var(--uni-wien-blue);
-  background-color: var(--uni-wien-light);
+  border-left: 3px solid var(--orange);
+  background-color: var(--orange-tint);
 }
 
 .callout-note .callout-header {
-  color: var(--uni-wien-blue);
+  color: var(--orange-dark);
+  background-color: var(--orange-muted);
 }
 
 .callout-tip {
-  border-left-color: #0f766e;
-  background-color: #f0fdfa;
+  border-left: 3px solid var(--sage-dark);
+  background-color: var(--sage-mist);
 }
 
-/* --- 6. Footer --- */
+.callout-tip .callout-header {
+  color: var(--sage-dark);
+  background-color: var(--sage-light);
+}
+
+.callout-warning {
+  border-left: 3px solid var(--orange-dark);
+  background-color: var(--orange-muted);
+}
+
+.callout-header {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.65rem 1rem;
+}
+
+.callout-body {
+  padding: 1rem 1.25rem;
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.9875rem;
+}
+
+/* --- 10. Table of Contents --- */
+#toc-title {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--orange-dark);
+}
+
+.toc-entry a {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.toc-entry a:hover,
+.toc-entry a.active {
+  color: var(--orange-dark);
+}
+
+/* --- 11. Horizontal Rules --- */
+hr {
+  border: none;
+  border-top: 1px solid var(--rule-light);
+  margin: 2.5rem 0;
+}
+
+/* --- 12. Footer --- */
 .page-footer {
-  font-size: 0.85rem;
-  color: #64748b;
-  border-top: 1px solid var(--ds-border);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.03em;
+  border-top: 1px solid var(--rule-light);
+  padding-top: 1.75rem;
+  margin-top: 4rem;
+}
+
+/* --- 13. Page navigation --- */
+.page-navigation {
+  margin-top: var(--section-gap);
   padding-top: 1.5rem;
-  margin-top: 3rem;
+  border-top: 1px solid var(--rule-light);
+}
+
+.page-navigation .nav-page a {
+  font-family: var(--font-body);
+  color: var(--orange-dark);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  transition: color 0.15s ease;
+}
+
+.page-navigation .nav-page a:hover {
+  color: var(--orange);
+}
+
+/* --- 14. Scrollbar (WebKit) --- */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--parchment-dark); }
+::-webkit-scrollbar-thumb { background: var(--sage); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--sage-dark); }
+
+/* --- 15. Responsive --- */
+@media (max-width: 768px) {
+  h1 { font-size: 1.85rem; }
+  h2 { font-size: 1.35rem; margin-top: 2.5rem; }
+  .quarto-title-block .title { font-size: 2rem; }
+  .math.display { padding: 1rem; font-size: 0.95em; }
+  pre, .sourceCode { font-size: 0.8rem; padding: 1rem; }
+}
+
+/* ============================================================
+   DARK MODE
+   Quarto adds .quarto-dark to <html> when dark mode is active.
+   Redefining every token here cascades to all components
+   automatically — no per-element overrides needed.
+   ============================================================ */
+
+.quarto-dark {
+  /* Orange stays vivid but lightens slightly for dark backgrounds */
+  --orange:           #FF7F11;
+  --orange-dark:      #ffA040;
+  --orange-muted:     #2d1e00;
+  --orange-tint:      #1e1500;
+
+  /* Sage inverts — light sage becomes the text/accent, dark sage the surface */
+  --sage:             #6a8464;
+  --sage-dark:        #ACBFA4;
+  --sage-light:       #1e2620;
+  --sage-mist:        #181f1a;
+
+  /* Ink inverts to near-white */
+  --ink:              #f0ede6;
+  --ink-soft:         #cbc6bc;
+  --ink-muted:        #7a7568;
+
+  /* Parchment becomes deep charcoal, warm not cold */
+  --parchment:        #1a1917;
+  --parchment-dark:   #111110;
+
+  /* Rules become subtle dark lines */
+  --rule:             #35332c;
+  --rule-light:       #2a2822;
+}
+
+/* --- Explicit overrides for !important declarations --- */
+
+/* Navbar background was set with !important */
+.quarto-dark .navbar {
+  background-color: var(--parchment) !important;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Navbar brand color was set with !important */
+.quarto-dark .navbar-brand {
+  color: var(--ink) !important;
+}
+
+/* Nav links were set with !important */
+.quarto-dark .navbar .nav-link {
+  color: var(--ink-soft) !important;
+}
+.quarto-dark .navbar .nav-link:hover {
+  background-color: var(--orange-muted);
+  color: var(--orange-dark) !important;
+}
+
+/* Code block background was set with !important */
+.quarto-dark pre,
+.quarto-dark .sourceCode {
+  background-color: var(--sage-mist) !important;
+  border-color: var(--rule-light);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2), 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* Active sidebar item color was set with !important */
+.quarto-dark .sidebar-item.active > .sidebar-item-text,
+.quarto-dark .sidebar-item a.active {
+  color: var(--orange-dark) !important;
+}
+
+/* Math display gradient needs explicit dark values */
+.quarto-dark .math.display {
+  background: linear-gradient(to right, var(--sage-mist), var(--parchment));
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Selection highlight */
+.quarto-dark ::selection {
+  background-color: var(--orange-muted);
+  color: var(--ink);
 }

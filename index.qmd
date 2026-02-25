@@ -43,7 +43,7 @@ Computational methods and practical programming for data science.
 
 ## About
 
-**Author:** Erik An
-**Program:** MFDS Bachelor, University of Vienna (2025–2028)
+- **Author:** Erik An
+- **Program:** MFDS Bachelor, University of Vienna (2025–2028)
 
 *Inspired by MIT's [Introduction to Computational Thinking](https://computationalthinking.mit.edu/).*
