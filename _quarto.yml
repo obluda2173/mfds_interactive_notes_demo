@@ -56,8 +56,5 @@ format:
     code-tools: true
     highlight-style: github
 
-filters:
-  - live
-
 execute:
   freeze: auto

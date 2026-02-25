@@ -2,97 +2,77 @@
 
 [![Build and Deploy](https://github.com/obluda2173/mfds/actions/workflows/publish.yml/badge.svg)](https://github.com/obluda2173/mfds/actions/workflows/publish.yml)
 
-**Interactive lecture notes for the Mathematical Foundations of Data Science (MFDS) program at the University of Vienna.**
+Interactive lecture notes for the **Mathematical Foundations of Data Science (MFDS)** program at the University of Vienna.
 
 🌐 **Live Website:** [obluda2173.github.io/mfds](https://obluda2173.github.io/mfds/)
 
 ---
 
-## 📚 About
+## About
 
-This repository contains interactive lecture notes built with [Pluto.jl](https://plutojl.org/), a reactive notebook environment for Julia. Students can:
-
-- **Read** mathematical content with LaTeX rendering
-- **Interact** with visualizations using sliders and controls
-- **Experiment** with Julia code in real-time
-- **Self-check** understanding with built-in exercises
+This repository contains interactive lecture notes built with [Quarto](https://quarto.org/) and [Pyodide](https://pyodide.org/), a Python runtime compiled to WebAssembly. All code runs directly in the browser — no installation or server required.
 
 Inspired by MIT's [Introduction to Computational Thinking](https://computationalthinking.mit.edu/) course.
 
 ---
 
-## 📖 Available Lectures
+## Available Lectures
 
-### Analysis I
+### Introduction to Analysis
+
 | Lecture | Topic | Link |
 |:--------|:------|:-----|
 | 1 | Newton's Method | [View](https://obluda2173.github.io/mfds/lectures/analysis/01_newton_method.html) |
 
-*More lectures coming soon!*
+*More lectures coming soon.*
 
 ---
 
-## 🖥️ Running Locally
+## Running Locally
 
 ### Prerequisites
-- [Julia](https://julialang.org/downloads/) (v1.10 or later)
+
+- [Quarto](https://quarto.org/docs/get-started/) (v1.6 or later)
+- [R](https://www.r-project.org/) with `knitr` and `rmarkdown` packages
 
 ### Setup
-```julia
-# Start Julia REPL, then:
-using Pkg
-Pkg.add("Pluto")
 
-using Pluto
-Pluto.run()
+```bash
+git clone https://github.com/obluda2173/mfds.git
+cd mfds
+quarto preview
 ```
-
-Then open any `.jl` file from this repository.
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 mfds/
-├── index.jl                    # Homepage (course overview)
-├── README.md                   # This file
-│
+├── _quarto.yml                 # Project-level configuration
+├── _extensions/
+│   └── r-wasm/live/            # quarto-live extension (Pyodide runtime)
+├── index.qmd                   # Homepage
+├── styles.css                  # Custom styles
 ├── lectures/
 │   ├── analysis/               # Analysis I lectures
-│   │   └── 01_newton_method.jl
+│   │   └── 01_newton_method.qmd
 │   ├── linear_algebra/         # Linear Algebra lectures
-│   └── programming/            # Julia programming lectures
-│
-├── exercises/                  # Self-contained exercise notebooks
-│
+│   └── programming/            # Programming lectures
 └── .github/
     └── workflows/
-        └── ExportPluto.yaml    # Auto-deploys to GitHub Pages
+        └── publish.yml         # Builds and deploys to GitHub Pages
 ```
 
 ---
 
-## 🤝 Contributing
+## License
 
-Contributions are welcome! To add a new lecture:
-
-1. Create a new `.jl` Pluto notebook in the appropriate `lectures/` subfolder
-2. Follow the existing lecture format (title, sections, exercises)
-3. Update `index.jl` to link to the new lecture
-4. Push to trigger automatic deployment
+Released into the public domain under [The Unlicense](https://unlicense.org/).
 
 ---
 
-## 📜 License
+## Author
 
-This project is released into the public domain under [The Unlicense](https://unlicense.org/).
-
----
-
-## 👤 Author
-
-**Erik An**  
-MFDS Bachelor Student, University of Vienna (2025-2028)
-
-- GitHub: [@obluda2173](https://github.com/obluda2173)
+**Erik An** — MFDS Bachelor, University of Vienna (2025–2028)  
+GitHub: [@obluda2173](https://github.com/obluda2173)

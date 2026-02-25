@@ -3,7 +3,12 @@ title: "Newton's Method"
 subtitle: "Analysis I — Lecture 1"
 author: "Erik An"
 date: last-modified
-format: live-html
+format:
+  live-html:
+    theme:
+      light: flatly
+      dark: darkly
+    css: styles.css
 engine: knitr
 toc: true
 ---
