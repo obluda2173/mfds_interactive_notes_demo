@@ -5,53 +5,45 @@ author: "Erik An"
 date: last-modified
 ---
 
-## Welcome
+## Overview
 
-Welcome to the interactive lecture notes for the **Mathematical Foundations of Data Science (MFDS)** program at the University of Vienna.
+These interactive lecture notes support the **Mathematical Foundations of Data Science (MFDS)** program at the University of Vienna. 
 
-These notes allow you to:
-
-- 📖 **Read** mathematical content with proper LaTeX rendering
-- 💻 **Interact** with code examples
-- 🧪 **Experiment** by modifying and running code
-- ✅ **Self-check** your understanding
+Designed for active learning, these materials allow you to review formal mathematical theory, execute and modify embedded code examples, and verify your understanding through integrated self-assessments.
 
 ---
 
-## Available Lectures
+## Course Modules
 
-### 📐 Analysis I
-
+### Introduction to Analysis 
 Foundations of real analysis: sequences, limits, continuity, and differentiation.
 
 | Lecture | Topic | Status |
 |:--------|:------|:------:|
-| [Lecture 1](lectures/analysis/01_newton_method.qmd) | Newton's Method | ✅ |
-| Lecture 2 | Sequences and Limits | 🚧 |
-| Lecture 3 | Continuity | 🚧 |
+| [Lecture 1](lectures/analysis/01_newton_method.qmd) | Newton's Method | Published |
+| Lecture 2 | Sequences and Limits | Pending |
+| Lecture 3 | Continuity | Pending |
 
-### 📊 Linear Algebra
-
+### Introduction to Linear Algebra
 Vector spaces, matrices, eigenvalues, and linear transformations.
 
 | Lecture | Topic | Status |
 |:--------|:------|:------:|
-| Lecture 1 | Vector Spaces | 🚧 |
-| Lecture 2 | Linear Maps | 🚧 |
+| Lecture 1 | Vector Spaces | Pending |
+| Lecture 2 | Linear Maps | Pending |
 
-### 💻 Programming
-
-Computational methods and programming for data science.
+### Programming
+Computational methods and practical programming for data science.
 
 | Lecture | Topic | Status |
 |:--------|:------|:------:|
-| Lecture 1 | Julia Basics | 🚧 |
+| Lecture 1 | Julia Basics | Pending |
 
 ---
 
 ## About
 
-This project is inspired by MIT's [Introduction to Computational Thinking](https://computationalthinking.mit.edu/) course.
+**Author:** Erik An
+**Program:** MFDS Bachelor, University of Vienna (2025–2028)
 
-**Author:** Erik An  
-**Program:** MFDS Bachelor, University of Vienna (2025-2028)
+*Inspired by MIT's [Introduction to Computational Thinking](https://computationalthinking.mit.edu/).*

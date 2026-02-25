@@ -1,42 +1,100 @@
 /* Custom styles for MFDS Interactive Notes */
 
-/* Better code blocks */
-pre {
-  border-radius: 8px;
+/* --- 1. Core Variables & Branding --- */
+:root {
+  /* Official University of Vienna Blue */
+  --uni-wien-blue: #0063a6;
+  --uni-wien-light: #e8f1f7;
+
+  /* Clean Data Science Accents */
+  --ds-border: #e2e8f0;
+  --ds-bg-light: #f8fafc;
+  --text-main: #334155;
 }
 
-/* Callout styling */
+/* --- 2. Navigation & Layout --- */
+.navbar {
+  border-bottom: 3px solid var(--uni-wien-blue);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--uni-wien-blue) !important;
+}
+
+.sidebar-title {
+  font-weight: 700;
+  color: var(--text-main);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+/* --- 3. Code & Math (The Data Science Core) --- */
+pre, .sourceCode {
+  border-radius: 6px;
+  border: 1px solid var(--ds-border);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+  background-color: var(--ds-bg-light);
+}
+
+.math.display {
+  overflow-x: auto;
+  padding: 1.25rem 1rem;
+  margin: 1.5rem 0;
+  background-color: #fafafa;
+  border-left: 3px solid #cbd5e1;
+  border-radius: 0 6px 6px 0;
+  font-size: 1.05em;
+}
+
+/* --- 4. Tables (Data Frame Aesthetic) --- */
+table {
+  margin: 2rem 0;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+table thead th {
+  border-bottom: 2px solid var(--uni-wien-blue);
+  color: var(--text-main);
+  font-weight: 600;
+  padding: 0.75rem 0.5rem;
+  text-align: left;
+}
+
+table tbody td {
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid var(--ds-border);
+}
+
+table tbody tr:hover {
+  background-color: var(--uni-wien-light);
+}
+
+/* --- 5. Callouts (Academic Admonitions) --- */
 .callout-note {
-  border-left-color: #0d6efd;
+  border-left-color: var(--uni-wien-blue);
+  background-color: var(--uni-wien-light);
+}
+
+.callout-note .callout-header {
+  color: var(--uni-wien-blue);
 }
 
 .callout-tip {
-  border-left-color: #198754;
+  border-left-color: #0f766e;
+  background-color: #f0fdfa;
 }
 
-/* Table styling */
-table {
-  margin: 1.5rem 0;
-}
-
-/* Footer styling */
+/* --- 6. Footer --- */
 .page-footer {
-  font-size: 0.9rem;
-  color: #6c757d;
-}
-
-/* Navigation improvements */
-.navbar-brand {
-  font-weight: 600;
-}
-
-/* Sidebar styling */
-.sidebar-title {
-  font-weight: 600;
-}
-
-/* Math display */
-.math.display {
-  overflow-x: auto;
-  padding: 1rem 0;
+  font-size: 0.85rem;
+  color: #64748b;
+  border-top: 1px solid var(--ds-border);
+  padding-top: 1.5rem;
+  margin-top: 3rem;
 }

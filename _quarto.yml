@@ -8,7 +8,7 @@ website:
   site-url: https://obluda2173.github.io/mfds/
   
   navbar:
-    title: "MFDS Notes"
+    title: "MFDS"
     left:
       - text: "Home"
         href: index.qmd
@@ -40,13 +40,24 @@ website:
 
   page-footer:
     center: |
-      MFDS Interactive Notes · University of Vienna · 2025-2028
+      MFDS · University of Vienna · 2025-2028
     right: |
       Built with [Quarto](https://quarto.org/)
 
 format:
   html:
-    theme: 
+    theme:
+      light: flatly
+      dark: darkly
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    code-fold: false
+    code-tools: true
+    highlight-style: github
+
+  live-html:
+    theme:
       light: flatly
       dark: darkly
     css: styles.css
