@@ -42,7 +42,7 @@ jobs:
 
       - name: Install R packages
         run: |
-          install.packages("knitr", repos = "https://cloud.r-project.org")
+          install.packages(c("knitr", "rmarkdown"), repos = "https://cloud.r-project.org")
         shell: Rscript {0}
 
       - name: Setup Quarto
