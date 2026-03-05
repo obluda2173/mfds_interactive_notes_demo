@@ -1,6 +1,6 @@
 ---
 title: "LECTURE_TITLE"
-subtitle: "MODULE_NAME — Lecture N"
+subtitle: "MODULE_NAME - Lecture N"
 author: "Erik An"
 date: last-modified
 format:

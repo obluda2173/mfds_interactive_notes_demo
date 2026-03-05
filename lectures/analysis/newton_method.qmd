@@ -1,6 +1,6 @@
 ---
 title: "Newton's Method"
-subtitle: "Analysis I — Lecture 1"
+subtitle: "Analysis - Lecture 1"
 author: "Erik An"
 date: last-modified
 format:
@@ -18,9 +18,9 @@ toc: true
 
 ## 1. Motivation
 
-How would you compute $\sqrt{2}$ if you didn't have a calculator? You can't solve $x^2 = 2$ by simple algebra — there is no finite formula that spits out the answer in one step.
+How would you compute $\sqrt{2}$ if you didn't have a calculator? You can't solve $x^2 = 2$ by simple algebra -- there is no finite formula that spits out the answer in one step.
 
-But you *can* guess, check how wrong you are, and improve. This is the idea behind **root finding**: given a function $f$, find $x^*$ such that $f(x^*) = 0$. Root finding appears everywhere — solving equations, locating fixed points, optimisation (finding where $f'(x) = 0$).
+But you *can* guess, check how wrong you are, and improve. This is the idea behind **root finding**: given a function $f$, find $x^*$ such that $f(x^*) = 0$. Root finding appears everywhere -- solving equations, locating fixed points, optimisation (finding where $f'(x) = 0$).
 
 We'll develop Newton's method by solving one concrete problem: find $\sqrt{2}$ as a root of $f(x) = x^2 - 2$.
 
@@ -54,7 +54,7 @@ where $e_n = x_n - x^*$. Substituting into the update and simplifying gives
 
 $$e_{n+1} \approx \frac{f''(x^*)}{2\,f'(x^*)}\,e_n^2.$$
 
-The error *squares* each step — **quadratic convergence**. The number of correct digits roughly doubles every iteration.
+The error *squares* each step -- **quadratic convergence**. The number of correct digits roughly doubles every iteration.
 
 ### What can go wrong
 
