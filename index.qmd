@@ -20,7 +20,7 @@ Foundations of real analysis: sequences, limits, continuity, and differentiation
 
 | Lecture | Topic | Status |
 |:--------|:------|:------:|
-| [Lecture 1](lectures/analysis/01_newton_method.qmd) | Newton's Method | Published |
+| [Lecture 1](lectures/analysis/newton_method.qmd) | Newton's Method | Published |
 | Lecture 2 | Sequences and Limits | Pending |
 | Lecture 3 | Continuity | Pending |
 

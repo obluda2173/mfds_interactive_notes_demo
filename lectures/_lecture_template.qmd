@@ -1,0 +1,156 @@
+---
+title: "LECTURE_TITLE"
+subtitle: "MODULE_NAME — Lecture N"
+author: "Erik An"
+date: last-modified
+format:
+  live-html:
+    theme:
+      light: flatly
+      dark: darkly
+    css: ../../styles.css
+engine: knitr
+toc: true
+---
+
+{{< include ../../_extensions/r-wasm/live/_knitr.qmd >}}
+
+<!-- ============================================================
+     MFDS LECTURE TEMPLATE
+     ============================================================
+
+     STRUCTURE
+     ---------
+     Every lecture follows the same seven-section arc.
+     Delete the comments once you've filled in your content.
+
+       §1  Motivation     — Why should I care?
+       §2  Theory         — Definitions, theorems, derivations.
+       §3  Implementation — Interactive code that builds the idea.
+       §4  Experiment     — Tweak parameters, observe behaviour.
+       §5  Visualisation  — A plot that consolidates intuition.
+       §6  Edge cases     — Where does the method break?
+       §7  Exercise       — One exercise the reader solves in-browser.
+       §8  Summary        — Callout box + bullet recap.
+
+     CONVENTIONS
+     -----------
+     • One concept per lecture.  Aim for 15–25 min reading time.
+     • Keep prose between code blocks short (2–4 sentences).
+     • Every pyodide block must be self-contained OR depend only
+       on blocks that appear earlier in the same lecture.
+     • Use `---` horizontal rules to give visual breathing room.
+     • Callout types:  .callout-note   (blue)   — formulas, recalls
+                       .callout-tip    (green)  — intuition, tricks
+                       .callout-warning(yellow) — pitfalls
+                       .callout-important(red)  — critical caveats
+     ============================================================ -->
+
+
+## 1. Motivation
+
+<!-- 2–3 sentences: a concrete problem that creates the *need* for
+     the concept.  End with a specific example the rest of the
+     lecture will solve. -->
+
+
+---
+
+## 2. Theory
+
+<!-- Definitions → key formula → short derivation.
+     Wrap the main result in a callout: -->
+
+::: {.callout-note}
+## Main Result
+$$
+  \text{FORMULA HERE}
+$$
+:::
+
+
+---
+
+## 3. Implementation
+
+<!-- First block: imports + helper definitions.
+     Second block: the core algorithm.
+     Keep blocks short (≤ 25 lines). -->
+
+```{pyodide}
+import numpy as np
+```
+
+```{pyodide}
+# Core algorithm here
+```
+
+
+---
+
+## 4. Experiment
+
+<!-- One interactive block where the reader changes a parameter
+     (starting point, step size, tolerance …) and sees the effect
+     printed as a table or short log. -->
+
+```{pyodide}
+# === EXPERIMENT: Change ... and re-run! ===
+```
+
+
+---
+
+## 5. Visualisation
+
+```{pyodide}
+import matplotlib.pyplot as plt
+
+# One clear, well-labelled plot.
+```
+
+
+---
+
+## 6. Edge Cases
+
+<!-- A short block that demonstrates *failure* or surprising
+     behaviour.  Follow with 1–2 sentences of explanation. -->
+
+```{pyodide}
+# What happens when …?
+```
+
+
+---
+
+## 7. Exercise
+
+<!-- State the task in bold, give a hint, then provide a scaffold
+     with TODO markers for the reader to fill in. -->
+
+**Your task:** …
+
+*Hint:* …
+
+```{pyodide}
+# TODO: ...
+```
+
+
+---
+
+## 8. Summary
+
+::: {.callout-note}
+## Key Formula
+$$
+  \text{FORMULA HERE}
+$$
+:::
+
+**Takeaways**
+
+- …
+- …
+- …

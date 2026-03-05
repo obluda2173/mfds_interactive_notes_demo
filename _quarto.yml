@@ -15,7 +15,7 @@ website:
       - text: "Analysis"
         menu:
           - text: "Newton's Method"
-            href: lectures/analysis/01_newton_method.qmd
+            href: lectures/analysis/newton_method.qmd
       - text: "Linear Algebra"
         href: lectures/linear_algebra/index.qmd
       - text: "Programming"
@@ -31,7 +31,7 @@ website:
     contents:
       - section: "Analysis"
         contents:
-          - lectures/analysis/01_newton_method.qmd
+          - lectures/analysis/newton_method.qmd
       - section: "Linear Algebra"
         contents:
           - lectures/linear_algebra/index.qmd

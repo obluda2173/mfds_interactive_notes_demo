@@ -1,4 +1,4 @@
-# MFDS Interactive Lecture Notes
+# MFDS Interactive Lecture Notes - Demo
 
 [![Build and Deploy](https://github.com/obluda2173/mfds/actions/workflows/publish.yml/badge.svg)](https://github.com/obluda2173/mfds/actions/workflows/publish.yml)
 
@@ -68,7 +68,7 @@ mfds/
 
 ## License
 
-Released into the public domain under [The Unlicense](https://unlicense.org/).
+Released into the public domain under [MIT License](file:./LICENSE).
 
 ---
 
