@@ -68,7 +68,7 @@ mfds/
 
 ## License
 
-Released into the public domain under [MIT License](file:./LICENSE).
+Released under the [MIT License](./LICENSE).
 
 ---
 
