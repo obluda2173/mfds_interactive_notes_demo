@@ -25,7 +25,7 @@ Foundations of real analysis: sequences, limits, continuity, and differentiation
 | Lecture 3 | Continuity | Pending |
 
 ### Introduction to Linear Algebra
-Vector spaces, matrices, eigenvalues, and linear transformations.
+Vector spaces, matrices, and linear transformations.
 
 | Lecture | Topic | Status |
 |:--------|:------|:------:|
