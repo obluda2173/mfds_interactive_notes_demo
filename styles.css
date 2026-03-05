@@ -1,9 +1,9 @@
 /* ============================================================
    MFDS Interactive Notes — Custom Stylesheet
-   Palette: Amber-Orange · Sage Green · Warm Parchment · Ink
+   Palette: Amber-Orange · Slate Code · Warm Parchment · Ink
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,300;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,300;1,7..72,400&family=JetBrains+Mono:wght@400;500&display=swap');
 
 /* --- 1. Design Tokens --- */
 :root {
@@ -27,25 +27,46 @@
   --rule:             #9aad92;
   --rule-light:       #C8D0B8;
 
+  /* Code-specific palette — cooler, more "terminal" feel */
+  --code-bg:          #f2f1ee;
+  --code-border:      #d8d5ce;
+  --code-shadow:      rgba(0, 0, 0, 0.04);
+  --code-inline-bg:   var(--orange-tint);
+  --code-inline-border: var(--orange-muted);
+
+  /* Theorem / definition palette */
+  --theorem-border:   var(--orange);
+  --theorem-bg:       var(--orange-tint);
+  --theorem-label:    var(--orange-dark);
+  --def-border:       #6882A0;
+  --def-bg:           #f5f7fa;
+  --def-label:        #4a6580;
+
   /* Typography */
   --font-display:     'Playfair Display', Georgia, serif;
-  --font-body:        'Source Serif 4', Georgia, serif;
+  --font-body:        'Literata', Georgia, serif;
   --font-mono:        'JetBrains Mono', 'Fira Code', monospace;
 
   /* Rhythm */
   --rhythm:           1.75rem;
   --section-gap:      3.5rem;
+
+  /* Theme transition */
+  --theme-speed:      0.3s;
 }
 
 /* --- 2. Base Typography --- */
 body {
   font-family: var(--font-body);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--ink-soft);
   background-color: var(--parchment);
   font-size: 1.0625rem;
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
+  transition:
+    background-color var(--theme-speed) ease,
+    color var(--theme-speed) ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -54,6 +75,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--ink);
   line-height: 1.25;
   letter-spacing: -0.02em;
+  transition: color var(--theme-speed) ease;
 }
 
 h1 { font-size: 2.4rem; margin-bottom: 1.25rem; }
@@ -92,6 +114,8 @@ a:hover {
   box-shadow: 0 1px 10px rgba(38, 38, 38, 0.07);
   padding-top: 0.85rem;
   padding-bottom: 0.85rem;
+  transition: background-color var(--theme-speed) ease,
+              box-shadow var(--theme-speed) ease;
 }
 
 .navbar-brand {
@@ -119,13 +143,14 @@ a:hover {
 
 /* --- 4. Sidebar --- */
 #quarto-sidebar {
-  background-color: var(--perchament-dark) !important; /* Change this to your preferred color variable */
+  background-color: var(--parchment-dark) !important;
   border-right: 1px solid var(--rule-light);
 }
 
 .sidebar {
   background-color: var(--parchment);
   border-right: 1px solid var(--rule-light);
+  transition: background-color var(--theme-speed) ease;
 }
 
 .sidebar-title {
@@ -140,7 +165,7 @@ a:hover {
 
 .sidebar-item .sidebar-item-text {
   font-family: var(--font-body);
-  font-weight: 300;
+  font-weight: 400;
   font-size: 0.9rem;
   color: var(--ink-soft);
 }
@@ -149,9 +174,20 @@ a:hover {
 .sidebar-item a.active {
   color: var(--orange-dark) !important;
   font-weight: 500;
-  border-left: 2px solid var(--orange);
-  padding-left: 0.5rem;
-  margin-left: -0.5rem;
+  position: relative;
+}
+
+/* Active indicator via pseudo-element — avoids margin jitter */
+.sidebar-item.active > .sidebar-item-text::before,
+.sidebar-item a.active::before {
+  content: '';
+  position: absolute;
+  left: -0.75rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--orange);
+  border-radius: 1px;
 }
 
 /* --- 5. Title Block --- */
@@ -194,29 +230,32 @@ pre, .sourceCode {
   font-size: 0.875rem;
   line-height: 1.65;
   border-radius: 6px;
-  border: 1px solid var(--rule-light);
-  background-color: var(--sage-mist) !important;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.03), 0 2px 8px rgba(0,0,0,0.03);
+  border: 1px solid var(--code-border);
+  background-color: var(--code-bg) !important;
+  box-shadow: inset 0 1px 3px var(--code-shadow), 0 2px 8px var(--code-shadow);
   padding: 1.25rem 1.5rem;
   overflow-x: auto;
+  transition: background-color var(--theme-speed) ease,
+              border-color var(--theme-speed) ease;
 }
 
 code:not(.sourceCode) {
   font-family: var(--font-mono);
   font-size: 0.865em;
-  background-color: var(--orange-tint);
+  background-color: var(--code-inline-bg);
   color: var(--orange-dark);
-  border: 1px solid var(--orange-muted);
+  border: 1px solid var(--code-inline-border);
   border-radius: 3px;
   padding: 0.1em 0.4em;
 }
 
 /* --- 7. Math Display --- */
 .math.display {
+  display: block;
   overflow-x: auto;
   padding: 1.5rem 1.75rem;
   margin: 2rem 0;
-  background: linear-gradient(to right, var(--sage-mist), var(--parchment));
+  background: var(--code-bg);
   border-left: 3px solid var(--orange);
   border-radius: 0 6px 6px 0;
   font-size: 1.05em;
@@ -230,7 +269,7 @@ table {
   font-size: 0.9375rem;
   margin: 2rem 0;
   font-family: var(--font-body);
-  font-weight: 300;
+  font-weight: 400;
 }
 
 table thead th {
@@ -269,7 +308,7 @@ table tbody tr:last-child td {
 
 .callout-note {
   border-left: 3px solid var(--orange);
-  background-color: var(--orange-tint);
+  background-color: var(--code-bg);
 }
 
 .callout-note .callout-header {
@@ -304,11 +343,136 @@ table tbody tr:last-child td {
 .callout-body {
   padding: 1rem 1.25rem;
   font-family: var(--font-body);
-  font-weight: 300;
+  font-weight: 400;
   font-size: 0.9875rem;
 }
 
-/* --- 10. Table of Contents --- */
+/* Neutralise styled blocks when nested inside callouts.
+   Target span.math.display explicitly — that's what Quarto generates for $$ math.
+   Repeat for each callout type to win any specificity battle. */
+.callout span.math.display,
+.callout-note span.math.display,
+.callout-tip span.math.display,
+.callout-warning span.math.display,
+.callout-important span.math.display,
+.callout-caution span.math.display,
+.callout .callout-body span.math.display,
+.callout .callout-body p span.math.display,
+.callout .math.display,
+.callout .math,
+.callout mjx-container[display="true"],
+.callout .katex-display,
+.callout .MathJax_Display,
+.callout [class*="math"][class*="display"] {
+  background: none !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border-left: 0 none transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 1rem 0 !important;
+  margin: 1rem 0 !important;
+}
+
+.callout pre,
+.callout .sourceCode {
+  background-color: rgba(0, 0, 0, 0.03) !important;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: none;
+}
+
+.callout .theorem,
+.callout .definition,
+.callout .lemma,
+.callout .corollary,
+.callout .proposition {
+  background: transparent;
+  border-left: none;
+  box-shadow: none;
+  padding-left: 0;
+}
+
+/* --- 10. Theorem & Definition Blocks --- */
+.theorem, .definition, .lemma, .corollary, .proposition {
+  position: relative;
+  margin: 2rem 0;
+  padding: 1.25rem 1.5rem 1.25rem 1.5rem;
+  border-radius: 0 6px 6px 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.9875rem;
+  line-height: 1.75;
+}
+
+.theorem, .lemma, .corollary, .proposition {
+  background-color: var(--theorem-bg);
+  border-left: 3px solid var(--theorem-border);
+  box-shadow: 0 2px 8px rgba(255, 127, 17, 0.06);
+}
+
+.definition {
+  background-color: var(--def-bg);
+  border-left: 3px solid var(--def-border);
+  box-shadow: 0 2px 8px rgba(104, 130, 160, 0.06);
+}
+
+.theorem > .block-title,
+.lemma > .block-title,
+.corollary > .block-title,
+.proposition > .block-title {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--theorem-label);
+  margin-bottom: 0.5rem;
+}
+
+.definition > .block-title {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--def-label);
+  margin-bottom: 0.5rem;
+}
+
+/* Proof environment */
+.proof {
+  margin: 1.5rem 0 2rem;
+  padding: 0 0 0 1.25rem;
+  border-left: 1px dashed var(--rule);
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.proof::before {
+  content: 'Proof.';
+  display: block;
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-muted);
+  margin-bottom: 0.35rem;
+}
+
+.proof::after {
+  content: '∎';
+  display: block;
+  text-align: right;
+  font-style: normal;
+  color: var(--ink-muted);
+  margin-top: 0.5rem;
+}
+
+/* --- 11. Table of Contents --- */
 #toc-title {
   font-family: var(--font-mono);
   font-size: 0.7rem;
@@ -320,7 +484,7 @@ table tbody tr:last-child td {
 
 .toc-entry a {
   font-family: var(--font-body);
-  font-weight: 300;
+  font-weight: 400;
   font-size: 0.875rem;
   color: var(--ink-soft);
   text-decoration: none;
@@ -332,14 +496,20 @@ table tbody tr:last-child td {
   color: var(--orange-dark);
 }
 
-/* --- 11. Horizontal Rules --- */
+/* Smooth scrolling for TOC anchor links */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
+}
+
+/* --- 12. Horizontal Rules --- */
 hr {
   border: none;
   border-top: 1px solid var(--rule-light);
   margin: 2.5rem 0;
 }
 
-/* --- 12. Footer --- */
+/* --- 13. Footer --- */
 .page-footer {
   font-family: var(--font-mono);
   font-size: 0.75rem;
@@ -350,7 +520,7 @@ hr {
   margin-top: 4rem;
 }
 
-/* --- 13. Page navigation --- */
+/* --- 14. Page navigation --- */
 .page-navigation {
   margin-top: var(--section-gap);
   padding-top: 1.5rem;
@@ -369,19 +539,62 @@ hr {
   color: var(--orange);
 }
 
-/* --- 14. Scrollbar (WebKit) --- */
+/* --- 15. Scrollbar (WebKit) --- */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: var(--parchment-dark); }
 ::-webkit-scrollbar-thumb { background: var(--sage); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--sage-dark); }
 
-/* --- 15. Responsive --- */
+/* --- 16. Responsive --- */
 @media (max-width: 768px) {
   h1 { font-size: 1.85rem; }
   h2 { font-size: 1.35rem; margin-top: 2.5rem; }
   .quarto-title-block .title { font-size: 2rem; }
   .math.display { padding: 1rem; font-size: 0.95em; }
   pre, .sourceCode { font-size: 0.8rem; padding: 1rem; }
+  .theorem, .definition, .lemma, .corollary, .proposition {
+    padding: 1rem 1.15rem;
+  }
+}
+
+/* --- 17. Print --- */
+@media print {
+  body {
+    background: white;
+    color: #1a1a1a;
+    font-size: 11pt;
+    line-height: 1.6;
+  }
+
+  .navbar,
+  .sidebar,
+  #quarto-sidebar,
+  .page-navigation,
+  .page-footer,
+  #TOC,
+  .toc-entry {
+    display: none !important;
+  }
+
+  h1, h2, h3 { break-after: avoid; }
+  table, pre, .math.display, .theorem, .definition { break-inside: avoid; }
+
+  pre, .sourceCode {
+    background-color: #f5f5f5 !important;
+    border: 1px solid #ccc;
+    box-shadow: none;
+    font-size: 9pt;
+  }
+
+  .math.display {
+    background: #fafafa;
+    box-shadow: none;
+    border-left: 2px solid #333;
+  }
+
+  a { color: #1a1a1a; text-decoration: none; }
+  a[href]::after { content: ' (' attr(href) ')'; font-size: 0.8em; color: #666; }
+  a[href^="#"]::after { content: ''; }
 }
 
 /* ============================================================
@@ -416,22 +629,34 @@ hr {
   /* Rules become subtle dark lines */
   --rule:             #35332c;
   --rule-light:       #2a2822;
+
+  /* Code blocks: dark, slightly cool slate */
+  --code-bg:          #1c1b19;
+  --code-border:      #2e2d28;
+  --code-shadow:      rgba(0, 0, 0, 0.25);
+  --code-inline-bg:   #2a2010;
+  --code-inline-border: #3d2e10;
+
+  /* Theorem / definition — muted for dark mode */
+  --theorem-bg:       #1e1500;
+  --theorem-border:   #FF7F11;
+  --theorem-label:    #ffA040;
+  --def-bg:           #131820;
+  --def-border:       #4a6580;
+  --def-label:        #8aa8c4;
 }
 
 /* --- Explicit overrides for !important declarations --- */
 
-/* Navbar background was set with !important */
 .quarto-dark .navbar {
   background-color: var(--parchment) !important;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Navbar brand color was set with !important */
 .quarto-dark .navbar-brand {
   color: var(--ink) !important;
 }
 
-/* Nav links were set with !important */
 .quarto-dark .navbar .nav-link {
   color: var(--ink-soft) !important;
 }
@@ -440,28 +665,57 @@ hr {
   color: var(--orange-dark) !important;
 }
 
-/* Code block background was set with !important */
 .quarto-dark pre,
 .quarto-dark .sourceCode {
-  background-color: var(--sage-mist) !important;
-  border-color: var(--rule-light);
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2), 0 2px 8px rgba(0,0,0,0.15);
+  background-color: var(--code-bg) !important;
+  border-color: var(--code-border);
+  box-shadow: inset 0 1px 3px var(--code-shadow), 0 2px 8px var(--code-shadow);
 }
 
-/* Active sidebar item color was set with !important */
 .quarto-dark .sidebar-item.active > .sidebar-item-text,
 .quarto-dark .sidebar-item a.active {
   color: var(--orange-dark) !important;
 }
 
-/* Math display gradient needs explicit dark values */
 .quarto-dark .math.display {
-  background: linear-gradient(to right, var(--sage-mist), var(--parchment));
+  background: var(--parchment);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Selection highlight */
+/* Dark mode: neutralise nested blocks inside callouts */
+.quarto-dark .callout span.math.display,
+.quarto-dark .callout-note span.math.display,
+.quarto-dark .callout-tip span.math.display,
+.quarto-dark .callout-warning span.math.display,
+.quarto-dark .callout-important span.math.display,
+.quarto-dark .callout-caution span.math.display,
+.quarto-dark .callout .callout-body span.math.display,
+.quarto-dark .callout .callout-body p span.math.display,
+.quarto-dark .callout .math.display,
+.quarto-dark .callout .math,
+.quarto-dark .callout mjx-container[display="true"],
+.quarto-dark .callout .katex-display,
+.quarto-dark .callout .MathJax_Display,
+.quarto-dark .callout [class*="math"][class*="display"] {
+  background: none !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border-left: 0 none transparent !important;
+  box-shadow: none !important;
+}
+
+.quarto-dark .callout pre,
+.quarto-dark .callout .sourceCode {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: none;
+}
+
 .quarto-dark ::selection {
   background-color: var(--orange-muted);
   color: var(--ink);
+}
+
+.quarto-dark #quarto-sidebar {
+  background-color: var(--parchment-dark) !important;
 }
