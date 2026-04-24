@@ -1,10 +1,10 @@
 # MFDS Interactive Lecture Notes - Demo
 
-[![Build and Deploy](https://github.com/obluda2173/mfds/actions/workflows/publish.yml/badge.svg)](https://github.com/obluda2173/mfds/actions/workflows/publish.yml)
+[![Build and Deploy](https://github.com/obluda2173/mfds_interactive/actions/workflows/publish.yml/badge.svg)](https://github.com/obluda2173/mfds_interactive/actions/workflows/publish.yml)
 
 Interactive lecture notes for the **Mathematical Foundations of Data Science (MFDS)** program at the University of Vienna.
 
-🌐 **Live Website:** [obluda2173.github.io/mfds](https://obluda2173.github.io/mfds/)
+🌐 **Live Website:** [obluda2173.github.io/mfds_interactive](https://obluda2173.github.io/mfds_interactive/)
 
 ---
 
@@ -22,7 +22,7 @@ Inspired by MIT's [Introduction to Computational Thinking](https://computational
 
 | Lecture | Topic | Link |
 |:--------|:------|:-----|
-| 1 | Newton's Method | [View](https://obluda2173.github.io/mfds/lectures/analysis/01_newton_method.html) |
+| 1 | Newton's Method | [View](https://obluda2173.github.io/mfds_interactive/lectures/analysis/01_newton_method.html) |
 
 *More lectures coming soon.*
 
@@ -38,7 +38,7 @@ Inspired by MIT's [Introduction to Computational Thinking](https://computational
 ### Setup
 
 ```bash
-git clone https://github.com/obluda2173/mfds.git
+git clone https://github.com/obluda2173/mfds_interactive.git
 cd mfds
 quarto preview
 ```
@@ -48,7 +48,7 @@ quarto preview
 ## Repository Structure
 
 ```
-mfds/
+mfds_interactive/
 ├── _quarto.yml                 # Project-level configuration
 ├── _extensions/
 │   └── r-wasm/live/            # quarto-live extension (Pyodide runtime)

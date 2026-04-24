@@ -5,10 +5,10 @@ project:
 website:
   title: "MFDS Interactive Lecture Notes"
   description: "Interactive lecture notes for Mathematical Foundations of Data Science"
-  site-url: https://obluda2173.github.io/mfds/
+  site-url: https://obluda2173.github.io/mfds_interactive/
   
   navbar:
-    title: "MFDS"
+    title: "MFDS Interactive"
     left:
       - text: "Home"
         href: index.qmd
@@ -22,7 +22,7 @@ website:
         href: lectures/programming/index.qmd
     right:
       - icon: github
-        href: https://github.com/obluda2173/mfds
+        href: https://github.com/obluda2173/mfds_interactive
 
   sidebar:
     style: "docked"
@@ -46,7 +46,7 @@ website:
       MFDS · University of Vienna · 2025–2028 <br>
       [Licensed](https://creativecommons.org/licenses/by-nc-sa/4.0/)
     right: |
-      Found a typo? [Report an issue](https://github.com/obluda2173/mfds/issues)
+      Found a typo? [Report an issue](https://github.com/obluda2173/mfds_interactive/issues)
 
 format:
   html:
