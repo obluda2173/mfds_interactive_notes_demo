@@ -13,7 +13,9 @@ Designed for active learning, these materials allow you to review formal mathema
 
 ---
 
-## Course Mysis 
+## Course Modules
+
+### Introduction to Analysis
 Foundations of real analysis: sequences, limits, continuity, and differentiation.
 
 | Lecture | Topic | Status |
